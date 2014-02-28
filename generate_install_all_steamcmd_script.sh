@@ -7,6 +7,9 @@
 #usage		 :generate_install_all_steamcmd_script.sh <Steam Profile Id>
 #notes           :Script needs bash (obviously), so... Linux or Cygwin.  You pick!
 #bash_version    :4.1.2(1)-release
+#curl_version    :7.19.7
+#grep_version    :2.6.3
+#sed_version     :4.2.1
 
 OUTFILE="steam_script.cmd"
 
