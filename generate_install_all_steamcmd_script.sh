@@ -46,8 +46,7 @@ runscript $OUTFILE
 
 Sit back and relax.\n"
 
-PROFILE_ID=$( curl -s "http://steamcommunity.com/id/$1" | grep -o -E "steamid\":\"[0-9]+\"" | grep -o -E "[0-9]+" )
-APP_IDS=$( curl -s "http://steamdb.info/calculator/?player=$PROFILE_ID" | grep -o -E "data-appid=\"[0-9]+\"" | grep -o -E "[0-9]+" | sed "s/ /\n/g" | sed "s/$/ validate/g" | sed "s/^/app_update /g" )
+APP_IDS=$( curl -s "https://steamdb.info/calculator/?player=$1" | grep -o -E "data-appid=\"[0-9]+\"" | grep -o -E "[0-9]+" | sed "s/ /\n/g" | sed "s/$/ validate/g" | sed "s/^/app_update /g" )
 echo -e "@ShutdownOnFailedCommand 0\n@NoPromptForPassword 1\n$APP_IDS\nexit" > "$OUTFILE"
 
 echo -e "Wrote script to $OUTFILE"
